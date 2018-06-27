@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Agenda</title>
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <div class="container py-4">
+      <?php if (isset($_GET['msg'])) : ?>
+        <div class="alert alert-success">
+          <?php echo urldecode($_GET['msg']); ?>
+        </div>
+      <?php endif; ?>
+
+      <div class="row justify-content-center">
+        <div class="col-8">

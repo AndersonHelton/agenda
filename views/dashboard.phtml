@@ -1,0 +1,33 @@
+<?php include __DIR__ . '/layout_header.phtml'; ?>
+
+<div class="clearfix">
+  <div class="float-right">
+    <div class="btn-group mb-3">
+      <a href="/" class="btn btn-success">
+        <i class="fa fa-long-arrow-left"></i> Voltar para a lista
+      </a>
+    </div>
+  </div>
+</div>
+
+<canvas id="chart"></canvas>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script>
+    var data = {
+      datasets: [{
+        data: [<?php echo join(',', $chartData['total']) ?>],
+        backgroundColor: ['<?php echo join("','", $chartData['colors']) ?>']
+      }],
+      labels: ['<?php echo join("','", $chartData['groups']) ?>']
+    };
+
+    var ctx = document.getElementById('chart').getContext('2d')
+    var myPieChart = new Chart(ctx, {
+      type: 'pie',
+      data: data,
+      options: {}
+    });
+</script>
+
+<?php include __DIR__ . '/layout_footer.phtml'; ?>
